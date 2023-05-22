@@ -1,8 +1,8 @@
-.background {
-  background-color: red;
-}
-
 .gridStyle {
   width: "25%";
   text-align: "center";
+}
+
+.textStyle {
+  color: black;
 }

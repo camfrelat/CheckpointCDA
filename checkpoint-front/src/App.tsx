@@ -1,13 +1,22 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import Continents from "./pages/Continents/Continents";
+import NavBar from "./components/NavBar";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Countries from "./pages/countries/Countries";
+import CountryDetails from "./pages/countryDetails/CountryDetails";
 
 function App() {
   return (
     <>
-      <div>NAVBAR</div>
-      <Continents />
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path="/continents" element={<Continents />} />
+          <Route path="/continent/:code" element={<Countries />} />
+          <Route path="/country/:code" element={<CountryDetails />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
