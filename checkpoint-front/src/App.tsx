@@ -13,7 +13,7 @@ function App() {
         <NavBar />
         <Routes>
           <Route path="/continents" element={<Continents />} />
-          <Route path="/countries/:code" element={<Countries />} />
+          <Route path="/continent/:code" element={<Countries />} />
           <Route path="/country/:code" element={<CountryDetails />} />
         </Routes>
       </BrowserRouter>
