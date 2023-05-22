@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
 import "./continents.css";
-import { Card } from "antd";
+import { Card, Row } from "antd";
 import { CONTINENTS_LIST } from "../../graphql/queries/continentQuery";
 import { useState } from "react";
 import { IContinent } from "../../graphql/types/IContinent";
@@ -21,15 +21,17 @@ function Continents() {
 
   return (
     <>
-      <Card title="Continents">
-        {continents.map((continent: IContinent) => (
-          <Card.Grid key={continent.code} className="gridStyle">
-            <Link to={`/continent/${continent.code}`} className="textStyle">
-              {continent.name}
-            </Link>
-          </Card.Grid>
-        ))}
-      </Card>
+      <Row justify="space-evenly">
+        <Card title="Continents">
+          {continents.map((continent: IContinent) => (
+            <Card.Grid key={continent.code} className="gridStyle">
+              <Link to={`/continent/${continent.code}`} className="textStyle">
+                {continent.name}
+              </Link>
+            </Card.Grid>
+          ))}
+        </Card>
+      </Row>
     </>
   );
 }

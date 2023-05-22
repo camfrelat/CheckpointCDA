@@ -14,6 +14,9 @@ export const COUNTRY = gql`
     country(code: $code) {
       code
       name
+      emoji
+      currency
+      capital
     }
   }
 `;

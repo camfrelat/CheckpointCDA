@@ -1,12 +1,12 @@
 import { Menu, MenuProps } from "antd";
-import { AppstoreOutlined, MailOutlined } from "@ant-design/icons";
+import { HomeOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 
 const items: MenuProps["items"] = [
   {
     label: <Link to="/continents">Continents</Link>,
     key: "continents",
-    icon: <MailOutlined />,
+    icon: <HomeOutlined />,
   },
   // {
   //   label: <Link to="/countries">Countries</Link>,

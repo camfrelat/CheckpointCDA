@@ -1,0 +1,10 @@
+.emojiStyle {
+  font-size: 40px;
+  text-align: center;
+}
+.cardStyle {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: black;
+}

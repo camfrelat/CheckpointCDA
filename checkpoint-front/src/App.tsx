@@ -3,8 +3,8 @@ import "./App.css";
 import Continents from "./pages/Continents/Continents";
 import NavBar from "./components/NavBar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Countries from "./pages/Countries";
-import CountryDetails from "./pages/CountryDetails";
+import Countries from "./pages/countries/Countries";
+import CountryDetails from "./pages/countryDetails/CountryDetails";
 
 function App() {
   return (
