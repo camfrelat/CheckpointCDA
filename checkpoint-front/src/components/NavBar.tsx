@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 const items: MenuProps["items"] = [
   {
     label: <Link to="/continents">Continents</Link>,
-    key: "mail",
+    key: "continents",
     icon: <MailOutlined />,
   },
-  {
-    label: <Link to="/Countries">Countries</Link>,
-    key: "app",
-    icon: <AppstoreOutlined />,
-  },
+  // {
+  //   label: <Link to="/countries">Countries</Link>,
+  //   key: "countries",
+  //   icon: <AppstoreOutlined />,
+  // },
   //   {
   //     label: "test",
   //     key: "SubMenu",
