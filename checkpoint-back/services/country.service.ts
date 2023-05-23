@@ -10,10 +10,14 @@ class CountryService {
     this.countryRepository = dataSource.getRepository(Country);
   }
 
-  async get(id: number): Promise<Country | null> {
-    let country = await this.countryRepository.findOneBy({ id });
+  async get(code: string): Promise<Country | null> {
+    let country = await this.countryRepository.findOneBy({ code });
 
     return country;
+  }
+
+  async getAll(): Promise<Country[]> {
+    return await this.countryRepository.find();
   }
 
   async create({ code, name, emoji }: ICountryInfos): Promise<Country> {

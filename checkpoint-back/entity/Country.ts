@@ -1,34 +1,30 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
-import { ObjectType, Field, InputType } from "type-graphql";
+import { Entity, Column, PrimaryColumn } from "typeorm";
+import { ObjectType, Field, InputType, ID } from "type-graphql";
 
 @ObjectType()
 @Entity("country")
 export default class Country {
-  @Field()
-  @PrimaryGeneratedColumn()
-  id: number;
-
-  @Field()
-  @Column()
+  @PrimaryColumn({ unique: true })
+  @Field(() => ID)
   code: string;
 
-  @Field()
   @Column()
+  @Field()
   name: string;
 
-  @Field()
   @Column()
+  @Field({ nullable: true })
   emoji: string;
 }
 
 @InputType({ description: "New country data" })
-export class CreateCountryInput implements Partial<Country> {
-  @Field()
-  code: string;
+export class CreateCountryInput {
+  // @Field()
+  // code: string;
 
-  @Field()
+  @Field(() => String)
   name: string;
 
-  @Field()
-  emoji: string;
+  // @Field({ nullable: true })
+  // emoji: string;
 }

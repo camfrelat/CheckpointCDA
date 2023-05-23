@@ -1,5 +1,3 @@
 import Country from "../entity/Country";
 
-export interface ICountryInfos extends Country {
-  id?: number;
-}
+export interface ICountryInfos extends Country {}

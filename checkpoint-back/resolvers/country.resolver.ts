@@ -9,26 +9,38 @@ export class CountryResolver {
   /* QUERIES */
 
   @Query(() => Country)
-  async getCountry(@Arg("id") id: number): Promise<Country | null> {
+  async getCountry(@Arg("id") id: string): Promise<Country | null> {
     let country = await new CountryService().get(id);
 
     return country;
+  }
+
+  @Query(() => [Country])
+  async getAllCountries(): Promise<Country[]> {
+    let countries = await new CountryService().getAll();
+
+    return countries;
   }
 
   /* MUTATIONS */
 
   @Mutation(() => Country)
   async createCountry(
-    @Arg("createCountryInput") createCountryInput: CreateCountryInput
+    @Arg("code") code: string,
+    @Arg("name") name: string,
+    @Arg("emoji") emoji: string
   ): Promise<Country> {
-    const { code, name, emoji } = createCountryInput;
+    try {
+      let country = await new CountryService().create({
+        code,
+        name,
+        emoji,
+      });
 
-    let country = await new CountryService().create({
-      code,
-      name,
-      emoji,
-    });
-
-    return country;
+      return country;
+    } catch (error) {
+      console.log(error);
+      throw new Error("Error : country was not created");
+    }
   }
 }
