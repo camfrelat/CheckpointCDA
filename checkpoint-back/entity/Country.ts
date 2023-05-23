@@ -1,7 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
-import { ObjectType, Field } from "type-graphql";
+import { ObjectType, Field, InputType } from "type-graphql";
 
-//@ObjectType()
+@ObjectType()
 @Entity("country")
 export default class Country {
   @Field()
@@ -18,5 +18,17 @@ export default class Country {
 
   @Field()
   @Column()
+  emoji: string;
+}
+
+@InputType({ description: "New country data" })
+export class CreateCountryInput implements Partial<Country> {
+  @Field()
+  code: string;
+
+  @Field()
+  name: string;
+
+  @Field()
   emoji: string;
 }
